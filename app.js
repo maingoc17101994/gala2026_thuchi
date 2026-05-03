@@ -32,6 +32,7 @@
   ).join("");
 
   // Tabs
+  const summaryGrid = document.querySelector(".summary-grid-hero");
   document.querySelectorAll(".tab").forEach((btn) => {
     btn.addEventListener("click", () => {
       document.querySelectorAll(".tab").forEach((b) => b.classList.remove("active"));
@@ -39,6 +40,9 @@
       btn.classList.add("active");
       const id = btn.getAttribute("data-tab");
       document.getElementById(id).classList.add("active");
+      if (summaryGrid) {
+        summaryGrid.style.display = id === "thanks" ? "none" : "";
+      }
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   });
