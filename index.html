@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sao kê Gala 2026</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero-inner">
+      <h1 id="page-title">GALA 2026 — Sao kê Thu Chi</h1>
+      <p id="page-subtitle">Danh sách ủng hộ, các khoản chi và chứng từ kèm theo.</p>
+      <nav class="tabs" role="tablist">
+        <button class="tab active" data-tab="overview" role="tab">Tổng quan</button>
+        <button class="tab"        data-tab="thu"      role="tab">Thu</button>
+        <button class="tab"        data-tab="chi"      role="tab">Chi</button>
+      </nav>
+
+      <div class="summary-grid summary-grid-hero">
+        <div class="card thu">
+          <div class="label">Tổng Thu</div>
+          <div class="value" id="sum-thu">0đ</div>
+          <div class="hint" id="count-thu">0 lượt ủng hộ</div>
+        </div>
+        <div class="card chi">
+          <div class="label">Tổng Chi</div>
+          <div class="value" id="sum-chi">0đ</div>
+          <div class="hint" id="count-chi">0 khoản chi</div>
+        </div>
+        <div class="card balance">
+          <div class="label">Số tiền còn tồn</div>
+          <div class="value" id="balance">0đ</div>
+          <div class="hint">Thu - Chi</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Tổng quan -->
+    <section id="overview" class="panel active">
+      <div class="overview-blocks">
+        <div class="overview-block">
+          <h3>Top 5 ủng hộ lớn nhất</h3>
+          <ol id="top-thu" class="rank-list"></ol>
+        </div>
+        <div class="overview-block">
+          <h3>Top 5 khoản chi lớn nhất</h3>
+          <ol id="top-chi" class="rank-list"></ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Thu -->
+    <section id="thu" class="panel">
+      <div class="toolbar">
+        <input type="search" id="search-thu" placeholder="Tìm tên người ủng hộ…" />
+        <div class="totals">
+          <span>Tổng: <strong id="total-thu">0đ</strong></span>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width:60px">#</th>
+              <th>Họ và tên</th>
+              <th class="num">Số tiền</th>
+              <th>Ghi chú</th>
+            </tr>
+          </thead>
+          <tbody id="thu-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Chi -->
+    <section id="chi" class="panel">
+      <div class="toolbar">
+        <input type="search" id="search-chi" placeholder="Tìm khoản chi…" />
+        <div class="totals">
+          <span>Tổng: <strong id="total-chi">0đ</strong></span>
+        </div>
+      </div>
+      <div id="chi-list" class="chi-list"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-line">GALA 2026 · Ban Tổ Chức · Minh Bạch — Trách Nhiệm — Cộng Đồng</p>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button class="lb-close" aria-label="Đóng">&times;</button>
+    <button class="lb-prev"  aria-label="Trước">&#10094;</button>
+    <button class="lb-next"  aria-label="Sau">&#10095;</button>
+    <div class="lb-content"></div>
+    <div class="lb-caption" id="lb-caption"></div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
